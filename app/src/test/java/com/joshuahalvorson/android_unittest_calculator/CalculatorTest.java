@@ -325,7 +325,8 @@ public class CalculatorTest {
         calculator.findSquareRoot();
 
         //check
-        assertEquals("12", calculator.getEnteredString());
+        assertEquals("12.0", calculator.getEnteredString());
     }
+    
 
 }

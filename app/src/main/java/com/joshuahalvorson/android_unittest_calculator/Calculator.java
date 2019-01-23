@@ -136,7 +136,14 @@ public class Calculator {
     }
 
     public String findSquareRoot(){
-        return "";
+        lastEnteredString = enteredString;
+        ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("s")));
+        Double doubleResult = Double.parseDouble(strings.get(0));
+        for(int i = 1; i < strings.size(); i++){
+            doubleResult = Math.sqrt(doubleResult);
+        }
+        enteredString = doubleResult.toString();
+        return enteredString;
     }
 
 }
