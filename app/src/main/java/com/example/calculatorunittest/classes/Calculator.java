@@ -24,4 +24,12 @@ public class Calculator {
     public String getCalculations(){
         return calculations;
     }
+
+    public String addDecimal(){
+        if (calculations.contains(".")){
+            return calculations;
+        }else {
+            return calculations += ".";
+        }
+    }
 }
