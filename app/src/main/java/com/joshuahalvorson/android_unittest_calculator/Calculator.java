@@ -156,7 +156,17 @@ public class Calculator {
     }
 
     public String findSquare(){
-        return "";
+        lastEnteredString = enteredString;
+        ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("sqr")));
+        Double doubleResult = Double.parseDouble(strings.get(0));
+        if(doubleResult > 0){
+            doubleResult = Math.pow(doubleResult, 2);
+            enteredString = doubleResult.toString();
+            return enteredString;
+        }else{
+            enteredString = "Invalid input";
+            return enteredString;
+        }
     }
 
 }

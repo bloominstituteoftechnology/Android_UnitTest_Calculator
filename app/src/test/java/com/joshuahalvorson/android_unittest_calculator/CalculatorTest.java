@@ -355,7 +355,7 @@ public class CalculatorTest {
         calculator.findSquare();
 
         //check
-        assertEquals("100", calculator.getEnteredString());
+        assertEquals("100.0", calculator.getEnteredString());
     }
 
 }
