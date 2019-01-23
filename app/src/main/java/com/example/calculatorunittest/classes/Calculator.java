@@ -4,6 +4,10 @@ import android.text.TextUtils;
 
 public class Calculator {
 
+    public enum Operator{ADD, SUBTRACT, DIVISION, MULTIPLICATION}
+
+    private String calculations;
+
     public Calculator() {
     }
 
@@ -15,5 +19,9 @@ public class Calculator {
             result = string;
         }
         return result;
+    }
+
+    public String getCalculations(){
+        return calculations;
     }
 }
