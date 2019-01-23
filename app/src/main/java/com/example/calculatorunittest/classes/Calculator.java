@@ -5,7 +5,7 @@ public class Calculator {
     public Calculator() {
     }
 
-    public String addSymbol(String string){
+    public static String addSymbol(String string){
         return string;
     }
 }
