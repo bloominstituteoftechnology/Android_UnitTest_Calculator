@@ -358,4 +358,21 @@ public class CalculatorTest {
         assertEquals("100.0", calculator.getEnteredString());
     }
 
+    @Test
+    public void shouldPerformCalculationsWithPi(){
+        //setup
+        String string1 = "25";
+        String string2 = "+";
+        String string3 = "pi";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.addSymbol(string3);
+        calculator.performAddition();
+
+        //check
+        assertEquals("28.14159265358979323846264338328", calculator.getEnteredString());
+    }
+
 }

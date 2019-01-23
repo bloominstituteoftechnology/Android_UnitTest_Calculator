@@ -175,4 +175,8 @@ public class Calculator {
         }
     }
 
+    public String performCalculationsWithPi(){
+        return "";
+    }
+
 }
