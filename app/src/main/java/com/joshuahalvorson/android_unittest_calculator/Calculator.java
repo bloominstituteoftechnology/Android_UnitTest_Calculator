@@ -102,6 +102,10 @@ public class Calculator {
             enteredString = getResultFromRepeatedCalculation("sqrt");
             findSquareRoot();
             return enteredString;
+        }else if(lastEnteredString.contains("sqr")){
+            enteredString = getResultFromRepeatedCalculation("sqr");
+            findSquare();
+            return enteredString;
         }
         return "";
     }
@@ -122,7 +126,9 @@ public class Calculator {
         }else if(operator.equals("/")){
             strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("/")));
         }else if(operator.equals("sqrt")){
-            strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("sqrt")));
+            strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("s")));
+        }else if(operator.equals("sqr")){
+            strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("s")));
         }
         if(strings.size() != 0){
             strings.set(0, enteredString);
@@ -143,7 +149,7 @@ public class Calculator {
 
     public String findSquareRoot(){
         lastEnteredString = enteredString;
-        ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("sqrt")));
+        ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("s")));
         Double doubleResult = Double.parseDouble(strings.get(0));
         if(doubleResult > 0){
             doubleResult = Math.sqrt(doubleResult);
@@ -157,7 +163,7 @@ public class Calculator {
 
     public String findSquare(){
         lastEnteredString = enteredString;
-        ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("sqr")));
+        ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("s")));
         Double doubleResult = Double.parseDouble(strings.get(0));
         if(doubleResult > 0){
             doubleResult = Math.pow(doubleResult, 2);
