@@ -32,7 +32,9 @@ public class Calculator {
     }
 
     public void removeLastAddedCharacter(){
-        enteredString = enteredString.substring(0, enteredString.length() - 1);
+        if(!enteredString.equals("")){
+            enteredString = enteredString.substring(0, enteredString.length() - 1);
+        }
     }
 
     public String performAddition(){

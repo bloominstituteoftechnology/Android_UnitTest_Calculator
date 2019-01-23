@@ -75,9 +75,26 @@ public class CalculatorTest {
     @Test
     public void shouldRemoveLastAddedCharacter(){
         //setup
-        String string1 = "103";
+        String string1 = "1";
         String string2 = "+";
-        String string3 = "13";
+        String string3 = "1";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.addSymbol(string3);
+        calculator.removeLastAddedCharacter();
+
+        //check
+        assertEquals("1+", calculator.getEnteredString());
+    }
+
+    @Test
+    public void shouldNotRemoveCharacterWhenStringIsEmpty(){
+        //setup
+        String string1 = "1";
+        String string2 = "+";
+        String string3 = "1";
 
         //execution
         calculator.addSymbol(string1);
@@ -86,9 +103,10 @@ public class CalculatorTest {
         calculator.removeLastAddedCharacter();
         calculator.removeLastAddedCharacter();
         calculator.removeLastAddedCharacter();
+        calculator.removeLastAddedCharacter();
 
         //check
-        assertEquals("103", calculator.getEnteredString());
+        assertEquals("", calculator.getEnteredString());
     }
 
     @Test
