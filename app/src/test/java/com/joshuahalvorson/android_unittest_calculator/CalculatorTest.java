@@ -23,7 +23,7 @@ public class CalculatorTest {
         calculator.addSymbol(expected);
 
         //check
-        assertEquals(expected, calculator.addSymbol(expected));
+        assertEquals(expected, calculator.getEnteredString());
     }
 
     @Test
@@ -33,10 +33,11 @@ public class CalculatorTest {
         String string2 = "2" ;
 
         //execution
-        String expected = calculator.addSymbol(string1 + string2);
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
 
         //check
-        assertEquals(expected, calculator.addSymbol(string1 + string2));
+        assertEquals("112", calculator.getEnteredString());
     }
 
 }
