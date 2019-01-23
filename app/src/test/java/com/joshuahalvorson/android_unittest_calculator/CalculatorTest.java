@@ -211,6 +211,31 @@ public class CalculatorTest {
     }
 
     @Test
+    public void shouldPerformMultipleMultiplications(){
+        //setup
+        String string1 = "10";
+        String string2 = "*";
+        String string3 = "13";
+        String string4 = "*";
+        String string5 = "11";
+        String string6 = "*";
+        String string7 = "16";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.addSymbol(string3);
+        calculator.addSymbol(string4);
+        calculator.addSymbol(string5);
+        calculator.addSymbol(string6);
+        calculator.addSymbol(string7);
+        calculator.performMultiplication();
+
+        //check
+        assertEquals("22880.0", calculator.getEnteredString());
+    }
+
+    @Test
     public void shouldPerformDivision(){
         //setup
         String string1 = "100";
