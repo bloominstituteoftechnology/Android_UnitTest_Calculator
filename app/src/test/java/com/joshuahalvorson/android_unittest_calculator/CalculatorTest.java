@@ -327,6 +327,4 @@ public class CalculatorTest {
         //check
         assertEquals("12.0", calculator.getEnteredString());
     }
-    
-
 }

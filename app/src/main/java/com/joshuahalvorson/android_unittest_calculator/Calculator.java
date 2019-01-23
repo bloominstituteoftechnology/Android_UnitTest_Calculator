@@ -98,6 +98,10 @@ public class Calculator {
             enteredString = getResultFromRepeatedCalculation("/");
             performDivision();
             return enteredString;
+        }else if(lastEnteredString.contains("sqrt")){
+            enteredString = getResultFromRepeatedCalculation("sqrt");
+            findSquareRoot();
+            return enteredString;
         }
         return "";
     }
@@ -117,6 +121,8 @@ public class Calculator {
             strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("\\*")));
         }else if(operator.equals("/")){
             strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("/")));
+        }else if(operator.equals("sqrt")){
+            strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("s")));
         }
         if(strings.size() != 0){
             strings.set(0, enteredString);
@@ -139,9 +145,7 @@ public class Calculator {
         lastEnteredString = enteredString;
         ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("s")));
         Double doubleResult = Double.parseDouble(strings.get(0));
-        for(int i = 1; i < strings.size(); i++){
-            doubleResult = Math.sqrt(doubleResult);
-        }
+        doubleResult = Math.sqrt(doubleResult);
         enteredString = doubleResult.toString();
         return enteredString;
     }
