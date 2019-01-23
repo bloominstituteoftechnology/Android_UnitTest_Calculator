@@ -135,4 +135,8 @@ public class Calculator {
         return enteredString;
     }
 
+    public String findSquareRoot(){
+        return "";
+    }
+
 }

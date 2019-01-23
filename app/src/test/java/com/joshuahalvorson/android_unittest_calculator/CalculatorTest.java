@@ -313,4 +313,19 @@ public class CalculatorTest {
         assertEquals("", calculator.getEnteredString());
     }
 
+    @Test
+    public void shouldReturnSquareRoot(){
+        //setup
+        String string1 = "144";
+        String string2 = "sqrt";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.findSquareRoot();
+
+        //check
+        assertEquals("12", calculator.getEnteredString());
+    }
+
 }
