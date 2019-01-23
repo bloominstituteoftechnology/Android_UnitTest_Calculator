@@ -56,6 +56,23 @@ public class CalculatorTest {
     }
 
     @Test
+    public void shouldNotAddDecimalToStringWithDecimalInIt(){
+        //setup
+        String string1 = ".";
+        String string2 = "5";
+        String string3 = ".";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.addSymbol(string3);
+
+
+        //check
+        assertEquals(".5", calculator.getEnteredString());
+    }
+
+    @Test
     public void shouldRemoveLastAddedCharacter(){
         //setup
         String string1 = "103";
