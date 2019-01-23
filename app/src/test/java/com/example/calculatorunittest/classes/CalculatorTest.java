@@ -16,9 +16,15 @@ public class CalculatorTest {
 
     @Test
     public void shouldAddSymbol() {
-        String result = "a";
-        calculator.addSymbol("");
+
         assertEquals("a", calculator.addSymbol(null));
+
+    }
+
+    @Test
+    public void shouldAddWord() {
+
+        assertEquals("a", calculator.addSymbol("happy"));
 
     }
 }
