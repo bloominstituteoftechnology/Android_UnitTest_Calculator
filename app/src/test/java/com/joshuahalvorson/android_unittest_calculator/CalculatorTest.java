@@ -253,6 +253,31 @@ public class CalculatorTest {
     }
 
     @Test
+    public void shouldPerformMultipleDivisions(){
+        //setup
+        String string1 = "10000";
+        String string2 = "/";
+        String string3 = "2";
+        String string4 = "/";
+        String string5 = "2";
+        String string6 = "/";
+        String string7 = "2";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.addSymbol(string3);
+        calculator.addSymbol(string4);
+        calculator.addSymbol(string5);
+        calculator.addSymbol(string6);
+        calculator.addSymbol(string7);
+        calculator.performDivision();
+
+        //check
+        assertEquals("1250.0", calculator.getEnteredString());
+    }
+
+    @Test
     public void shouldPerformRepeatedCalculations(){
         //setup
         String string1 = "5";
