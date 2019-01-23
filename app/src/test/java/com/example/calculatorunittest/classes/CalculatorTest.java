@@ -30,4 +30,16 @@ public class CalculatorTest {
         assertEquals("a", calculator.addSymbol("happy"));
 
     }
+
+    @Test
+    public void shouldAddOneDecimal() {
+        String result = "123.";
+        String test = "123";
+
+        calculator.getCalculations(test);
+        calculator.addDecimal();
+
+        assertEquals("123.", calculator.addDecimal());
+
+    }
 }

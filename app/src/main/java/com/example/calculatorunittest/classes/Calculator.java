@@ -21,7 +21,8 @@ public class Calculator {
         return result;
     }
 
-    public String getCalculations(){
+    public  String getCalculations(String number){
+        calculations = number;
         return calculations;
     }
 
