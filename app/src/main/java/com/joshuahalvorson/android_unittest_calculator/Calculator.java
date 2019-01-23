@@ -108,6 +108,10 @@ public class Calculator {
             enteredString = getResultFromRepeatedCalculation("sqr");
             findSquare();
             return enteredString;
+        }else if(lastEnteredString.contains("pi")){
+            enteredString = getResultFromRepeatedCalculation("pi");
+            findSquare();
+            return enteredString;
         }
         return "";
     }
@@ -131,6 +135,8 @@ public class Calculator {
             strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("s")));
         }else if(operator.equals("sqr")){
             strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("s")));
+        }else if(operator.equals("pi")){
+            strings = new ArrayList<>(Arrays.asList(lastEnteredString.split("p")));
         }
         if(strings.size() != 0){
             strings.set(0, enteredString);
