@@ -155,4 +155,8 @@ public class Calculator {
         }
     }
 
+    public String findSquare(){
+        return "";
+    }
+
 }

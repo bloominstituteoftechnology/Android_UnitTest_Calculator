@@ -342,4 +342,20 @@ public class CalculatorTest {
         //check
         assertEquals("Invalid input", calculator.getEnteredString());
     }
+
+    @Test
+    public void shouldReturnSquare(){
+        //setup
+        String string1 = "10";
+        String string2 = "sqr";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.findSquare();
+
+        //check
+        assertEquals("100", calculator.getEnteredString());
+    }
+
 }
