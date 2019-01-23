@@ -145,9 +145,14 @@ public class Calculator {
         lastEnteredString = enteredString;
         ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("s")));
         Double doubleResult = Double.parseDouble(strings.get(0));
-        doubleResult = Math.sqrt(doubleResult);
-        enteredString = doubleResult.toString();
-        return enteredString;
+        if(doubleResult > 0){
+            doubleResult = Math.sqrt(doubleResult);
+            enteredString = doubleResult.toString();
+            return enteredString;
+        }else{
+            enteredString = "Invalid input";
+            return enteredString;
+        }
     }
 
 }

@@ -327,4 +327,19 @@ public class CalculatorTest {
         //check
         assertEquals("12.0", calculator.getEnteredString());
     }
+
+    @Test
+    public void shouldNotReturnValidNumberWhenFindingSquareRootOfNegativeNumber(){
+        //setup
+        String string1 = "-144";
+        String string2 = "sqrt";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.findSquareRoot();
+
+        //check
+        assertEquals("Invalid input", calculator.getEnteredString());
+    }
 }
