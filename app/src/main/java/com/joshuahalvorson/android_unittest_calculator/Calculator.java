@@ -24,6 +24,8 @@ public class Calculator {
             }else{
                 //Log.i(TAG, "Number can only have one decimal");
             }
+        }else if(symbol.equals("pi")){
+            enteredString += "3.1415926535897932384626433832795";
         }else{
             enteredString += symbol;
         }
@@ -173,10 +175,6 @@ public class Calculator {
             enteredString = "Invalid input";
             return enteredString;
         }
-    }
-
-    public String performCalculationsWithPi(){
-        return "";
     }
 
 }

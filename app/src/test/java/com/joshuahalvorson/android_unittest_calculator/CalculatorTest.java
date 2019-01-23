@@ -362,17 +362,17 @@ public class CalculatorTest {
     public void shouldPerformCalculationsWithPi(){
         //setup
         String string1 = "25";
-        String string2 = "+";
+        String string2 = "*";
         String string3 = "pi";
 
         //execution
         calculator.addSymbol(string1);
         calculator.addSymbol(string2);
         calculator.addSymbol(string3);
-        calculator.performAddition();
+        calculator.performMultiplication();
 
         //check
-        assertEquals("28.14159265358979323846264338328", calculator.getEnteredString());
+        assertEquals("78.53981633974483", calculator.getEnteredString());
     }
 
 }
