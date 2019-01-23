@@ -169,6 +169,31 @@ public class CalculatorTest {
     }
 
     @Test
+    public void shouldPerformMultipleSubtractions(){
+        //setup
+        String string1 = "113";
+        String string2 = "-";
+        String string3 = "13";
+        String string4 = "-";
+        String string5 = "11";
+        String string6 = "-";
+        String string7 = "15";
+
+        //execution
+        calculator.addSymbol(string1);
+        calculator.addSymbol(string2);
+        calculator.addSymbol(string3);
+        calculator.addSymbol(string4);
+        calculator.addSymbol(string5);
+        calculator.addSymbol(string6);
+        calculator.addSymbol(string7);
+        calculator.performSubtraction();
+
+        //check
+        assertEquals("74.0", calculator.getEnteredString());
+    }
+
+    @Test
     public void shouldPerformMultiplication(){
         //setup
         String string1 = "10";
