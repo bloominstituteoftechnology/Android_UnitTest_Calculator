@@ -70,7 +70,7 @@ public class Calculator {
 
     public String div(){
         //todo figure out how how I want to get data
-        ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("-")));
+        ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("/")));
         Double num1 = Double.parseDouble(values.get(0));
         Double num2 = Double.parseDouble(values.get(1));
         if (num2 == 0){
