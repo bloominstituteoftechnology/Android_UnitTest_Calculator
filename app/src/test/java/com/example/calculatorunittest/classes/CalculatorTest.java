@@ -98,7 +98,7 @@ public class CalculatorTest {
         calculator.addSymbol(test2);
         calculator.addSymbol(test1);
         calculator.add();
+        assertEquals(result, calculator.add());
 
-        assertEquals(result, calculator.getCalculations());
     }
 }
