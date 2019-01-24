@@ -11,18 +11,17 @@ public class Calculator {
     public Calculator() {
     }
 
-    public static String addSymbol(String string){
-        String result = null;
-        if (string == "" || string == null ){
-            result = "a";
+    public String addSymbol(String string){
+
+        if (calculations == "" || calculations == null ){
+            calculations = string;
         }else {
-            result = string;
+            calculations += string;
         }
-        return result;
+        return calculations;
     }
 
-    public  String getCalculations(String number){
-        calculations = number;
+    public  String getCalculations(){
         return calculations;
     }
 
@@ -37,6 +36,8 @@ public class Calculator {
     public String removeLastCharacter(){
         if (!calculations.isEmpty()){
             calculations = calculations.substring(0, calculations.length() - 1);
+        }else {
+            calculations = "";
         }
         return calculations;
 

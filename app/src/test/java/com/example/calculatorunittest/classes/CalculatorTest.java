@@ -17,17 +17,18 @@ public class CalculatorTest {
     @Test
     public void shouldAddSymbol() {
 
-        String result = "a";
+        String result = "1";
         calculator.addSymbol(result);
-        assertEquals(result, calculator.addSymbol(null));
+        assertEquals(result, calculator.getCalculations());
 
     }
 
     @Test
-    public void shouldAddWord() {
-        String result = "a";
-        calculator.addSymbol(result);
-        assertEquals(result, calculator.addSymbol("happy"));
+    public void shouldAddCharacter() {
+        String result = "125";
+        calculator.addSymbol("12");
+        calculator.addSymbol("5");
+        assertEquals(result, calculator.getCalculations());
 
     }
 
@@ -35,23 +36,24 @@ public class CalculatorTest {
     public void shouldAddOneDecimal() {
         String result = "123.";
         String test = "123";
+        String test1 = ".";
 
-        calculator.getCalculations(test);
-        calculator.addDecimal();
+        calculator.addSymbol(test);
+        calculator.addSymbol(test1);
 
-        assertEquals(result, calculator.addDecimal());
+        assertEquals(result, calculator.getCalculations());
 
     }
 
     @Test
     public void shouldNotAddDecimal() {
-        String result = "1.23";
-        String test = "1.2.";
+        String result = "1.2";
+        String test = "1.2";
 
-        calculator.getCalculations(test);
+        calculator.addSymbol(test);
         calculator.addDecimal();
 
-        assertEquals(result, calculator.addDecimal());
+        assertEquals(result, calculator.getCalculations());
 
     }
 
@@ -60,8 +62,27 @@ public class CalculatorTest {
         String result = "125";
         String test = "1257";
 
-        calculator.getCalculations(test);
+        calculator.addSymbol(test);
+        calculator.removeLastCharacter();
 
-        assertEquals(result, calculator.removeLastCharacter());
+        assertEquals(result, calculator.getCalculations());
+    }
+
+    @Test
+    public void shouldNotRemoveLastCharacter(){
+        String result = "";
+        String test = "1";
+        String test1 = "2";
+        String test2 = "3";
+
+        calculator.addSymbol(test);
+        calculator.addSymbol(test1);
+        calculator.addSymbol(test2);
+        calculator.removeLastCharacter();
+        calculator.removeLastCharacter();
+        calculator.removeLastCharacter();
+        calculator.removeLastCharacter();
+
+        assertEquals(result, calculator.getCalculations());
     }
 }
