@@ -45,7 +45,13 @@ public class Calculator {
 
     public String add(){
         //todo figure out how how I want to get data
-        return null;
+        String[] values = calculations.split("+");
+        Double solution = 0.0;
+
+        for (String value : values) {
+            solution += Double.parseDouble(value);
+        }
+        return solution.toString();
     }
 
     public String sub(){
