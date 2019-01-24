@@ -19,7 +19,7 @@ public class CalculatorTest {
 
         String result = "a";
         calculator.addSymbol(result);
-        assertEquals("a", calculator.addSymbol(null));
+        assertEquals(result, calculator.addSymbol(null));
 
     }
 
@@ -27,7 +27,7 @@ public class CalculatorTest {
     public void shouldAddWord() {
         String result = "a";
         calculator.addSymbol(result);
-        assertEquals("a", calculator.addSymbol("happy"));
+        assertEquals(result, calculator.addSymbol("happy"));
 
     }
 
@@ -39,7 +39,29 @@ public class CalculatorTest {
         calculator.getCalculations(test);
         calculator.addDecimal();
 
-        assertEquals("123.", calculator.addDecimal());
+        assertEquals(result, calculator.addDecimal());
 
+    }
+
+    @Test
+    public void shouldNotAddDecimal() {
+        String result = "1.23";
+        String test = "1.2.";
+
+        calculator.getCalculations(test);
+        calculator.addDecimal();
+
+        assertEquals(result, calculator.addDecimal());
+
+    }
+
+    @Test
+    public void shouldRemoveLastCharacter(){
+        String result = "125";
+        String test = "1257";
+
+        calculator.getCalculations(test);
+
+        assertEquals(result, calculator.removeLastCharacter());
     }
 }

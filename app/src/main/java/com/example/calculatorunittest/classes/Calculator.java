@@ -33,4 +33,12 @@ public class Calculator {
             return calculations += ".";
         }
     }
+
+    public String removeLastCharacter(){
+        if (!calculations.isEmpty()){
+            calculations = calculations.substring(0, calculations.length() - 1);
+        }
+        return calculations;
+
+    }
 }
