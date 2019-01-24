@@ -101,4 +101,51 @@ public class CalculatorTest {
         assertEquals(result, calculator.add());
 
     }
+
+    @Test
+    public void shouldSubTwoNumbers(){
+        String result = "1.0";
+
+        String test = "5";
+        String test2 = "-";
+        String test1 = "4";
+
+        calculator.addSymbol(test);
+        calculator.addSymbol(test2);
+        calculator.addSymbol(test1);
+        calculator.sub();
+        assertEquals(result, calculator.sub());
+
+    }
+
+    @Test
+    public void shouldMultiTwoNumbers(){
+        String result = "20.0";
+
+        String test = "5";
+        String test2 = "*";
+        String test1 = "4";
+
+        calculator.addSymbol(test);
+        calculator.addSymbol(test2);
+        calculator.addSymbol(test1);
+        calculator.mult();
+        assertEquals(result, calculator.mult());
+
+    }
+    @Test
+    public void shouldDivTwoNumbers(){
+        String result = "5.0";
+
+        String test = "20";
+        String test2 = "/";
+        String test1 = "4";
+
+        calculator.addSymbol(test);
+        calculator.addSymbol(test2);
+        calculator.addSymbol(test1);
+        calculator.div();
+        assertEquals(result, calculator.div());
+
+    }
 }
