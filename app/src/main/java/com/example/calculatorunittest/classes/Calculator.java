@@ -48,33 +48,13 @@ public class Calculator {
 
     public String add(){
         //todo figure out how how I want to get data
-
         ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("\\+")));
-        Double sum = Double.valueOf(values.get(0));
-        for (int i = 1; i < calculations.length(); i++) {
-            if (Character.isDigit(calculations.charAt(i))){
-                sum += Character.getNumericValue(calculations.charAt(i));
-            }
 
-        }
+        Double num1 = Double.parseDouble(values.get(0));
+        Double num2 = Double.parseDouble(values.get(1));
+        Double sum = num1 + num2;
+
         return sum.toString();
-
-        /*Double sum = 0.0;
-        for (int i = 0; i < calculations.length(); i++) {
-            if (Character.isDigit(calculations.charAt(i))){
-                sum += Character.getNumericValue(calculations.charAt(i));
-            }
-
-        }
-        return sum.toString();*/
-
-       // String[] values = calculations.split("'+'");
-//        Double solution = 0.0;
-//
-//        for (String value : values) {
-//            solution += Double.parseDouble(value);
-//        }
-//        return solution.toString();
     }
 
     public String sub(){
