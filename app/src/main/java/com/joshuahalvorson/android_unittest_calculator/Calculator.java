@@ -76,11 +76,16 @@ public class Calculator {
         lastEnteredString = enteredString;
         ArrayList<String> strings = new ArrayList<>(Arrays.asList(enteredString.split("/")));
         Double doubleResult = Double.parseDouble(strings.get(0));
-        for(int i = 1; i < strings.size(); i++){
-            doubleResult /= Double.parseDouble(strings.get(i));
+        if(!strings.get(1).equals("0")){
+            for(int i = 1; i < strings.size(); i++){
+                doubleResult /= Double.parseDouble(strings.get(i));
+            }
+            enteredString = doubleResult.toString();
+            return enteredString;
+        }else{
+            enteredString = "Cant divide by 0";
+            return enteredString;
         }
-        enteredString = doubleResult.toString();
-        return enteredString;
     }
 
     public String repeatLastCalculation(){
