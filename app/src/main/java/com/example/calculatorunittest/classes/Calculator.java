@@ -60,26 +60,36 @@ public class Calculator {
     public String sub(){
         //todo figure out how how I want to get data
         ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("-")));
-        Double sum = Double.valueOf(values.get(0));
-        for (int i = 1; i < calculations.length(); i++) {
-            if (Character.isDigit(calculations.charAt(i))){
-                sum -= Character.getNumericValue(calculations.charAt(i));
-            }
+        Double num1 = Double.parseDouble(values.get(0));
+        Double num2 = Double.parseDouble(values.get(1));
+        Double sum = num1 - num2;
 
-        }
         return sum.toString();
 
     }
 
     public String div(){
         //todo figure out how how I want to get data
-        return null;
+        ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("-")));
+        Double num1 = Double.parseDouble(values.get(0));
+        Double num2 = Double.parseDouble(values.get(1));
+        if (num2 == 0){
+            return null;
+        }else {
+            Double sum = num1 / num2;
+            return sum.toString();
 
+        }
     }
 
     public String mult(){
         //todo figure out how how I want to get data
-        return null;
+        ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("\\*")));
+        Double num1 = Double.parseDouble(values.get(0));
+        Double num2 = Double.parseDouble(values.get(1));
+        Double sum = num1 * num2;
+
+        return sum.toString();
 
     }
 
