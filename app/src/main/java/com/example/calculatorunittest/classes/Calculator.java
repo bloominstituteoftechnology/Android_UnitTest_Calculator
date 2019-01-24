@@ -45,13 +45,22 @@ public class Calculator {
 
     public String add(){
         //todo figure out how how I want to get data
-        String[] values = calculations.split("+");
-        Double solution = 0.0;
 
-        for (String value : values) {
-            solution += Double.parseDouble(value);
+        Double sum = 0.0;
+        for (int i = 0; i < calculations.length(); i++) {
+            if (Character.isDigit(calculations.charAt(i))){
+                sum += Character.getNumericValue(calculations.charAt(i));
+            }
+
         }
-        return solution.toString();
+        return sum.toString();
+       // String[] values = calculations.split("'+'");
+//        Double solution = 0.0;
+//
+//        for (String value : values) {
+//            solution += Double.parseDouble(value);
+//        }
+//        return solution.toString();
     }
 
     public String sub(){

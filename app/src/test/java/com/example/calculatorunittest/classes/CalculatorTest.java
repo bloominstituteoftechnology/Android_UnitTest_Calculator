@@ -85,4 +85,20 @@ public class CalculatorTest {
 
         assertEquals(result, calculator.getCalculations());
     }
+
+    @Test
+    public void shouldAddTwoNumbers(){
+        String result = "7.0";
+
+        String test = "3";
+        String test2 = "+";
+        String test1 = "4";
+
+        calculator.addSymbol(test);
+        calculator.addSymbol(test2);
+        calculator.addSymbol(test1);
+        calculator.add();
+
+        assertEquals(result, calculator.getCalculations());
+    }
 }
