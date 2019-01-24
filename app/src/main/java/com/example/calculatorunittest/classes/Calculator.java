@@ -42,4 +42,27 @@ public class Calculator {
         return calculations;
 
     }
+
+    public String add(){
+        //todo figure out how how I want to get data
+        return null;
+    }
+
+    public String sub(){
+        //todo figure out how how I want to get data
+        return null;
+
+    }
+
+    public String div(){
+        //todo figure out how how I want to get data
+        return null;
+
+    }
+
+    public String mult(){
+        //todo figure out how how I want to get data
+        return null;
+
+    }
 }
