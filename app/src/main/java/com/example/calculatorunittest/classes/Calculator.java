@@ -2,6 +2,9 @@ package com.example.calculatorunittest.classes;
 
 import android.text.TextUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Calculator {
 
     public enum Operator{ADD, SUBTRACT, DIVISION, MULTIPLICATION}
@@ -46,14 +49,25 @@ public class Calculator {
     public String add(){
         //todo figure out how how I want to get data
 
-        Double sum = 0.0;
-        for (int i = 0; i < calculations.length(); i++) {
+        ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("\\+")));
+        Double sum = Double.valueOf(values.get(0));
+        for (int i = 1; i < calculations.length(); i++) {
             if (Character.isDigit(calculations.charAt(i))){
                 sum += Character.getNumericValue(calculations.charAt(i));
             }
 
         }
         return sum.toString();
+
+        /*Double sum = 0.0;
+        for (int i = 0; i < calculations.length(); i++) {
+            if (Character.isDigit(calculations.charAt(i))){
+                sum += Character.getNumericValue(calculations.charAt(i));
+            }
+
+        }
+        return sum.toString();*/
+
        // String[] values = calculations.split("'+'");
 //        Double solution = 0.0;
 //
@@ -65,7 +79,15 @@ public class Calculator {
 
     public String sub(){
         //todo figure out how how I want to get data
-        return null;
+        ArrayList<String> values = new ArrayList<>(Arrays.asList(calculations.split("-")));
+        Double sum = Double.valueOf(values.get(0));
+        for (int i = 1; i < calculations.length(); i++) {
+            if (Character.isDigit(calculations.charAt(i))){
+                sum -= Character.getNumericValue(calculations.charAt(i));
+            }
+
+        }
+        return sum.toString();
 
     }
 
