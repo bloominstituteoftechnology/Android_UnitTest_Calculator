@@ -25,7 +25,7 @@ public class Calculator {
                 //Log.i(TAG, "Number can only have one decimal");
             }
         }else if(symbol.equals("pi")){
-            enteredString += "3.1415926535897932384626433832795";
+            enteredString += "3.141592653589793";
         }else{
             enteredString += symbol;
         }
