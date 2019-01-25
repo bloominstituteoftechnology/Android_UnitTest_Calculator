@@ -16,7 +16,7 @@ public class Calculator {
     }
 
     public String addSymbol(String string) {
-
+    //todo
         if (calculations == "" || calculations == null) {
             calculations = string;
         } else {
