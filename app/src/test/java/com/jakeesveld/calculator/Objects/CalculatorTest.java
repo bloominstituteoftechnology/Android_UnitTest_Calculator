@@ -235,4 +235,22 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo(Calculator.CLEAR));
     }
 
+    @Test
+    public void calculateSquare(){
+        String returnedString;
+        calculator.addSymbol("3");
+        returnedString = calculator.setOperand(Calculator.SQUARE);
+
+        assertThat(returnedString, equalTo("9"));
+    }
+
+    @Test
+    public void calculateSquareRoot(){
+        String returnedString;
+        calculator.addSymbol("9");
+        returnedString = calculator.setOperand(Calculator.SQUARE_ROOT);
+
+        assertThat(returnedString, equalTo("3"));
+    }
+
 }

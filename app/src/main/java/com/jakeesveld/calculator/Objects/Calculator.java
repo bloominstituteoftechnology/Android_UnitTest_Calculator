@@ -9,6 +9,8 @@ public class Calculator {
     public static final String DIVIDE = "divide";
     public static final String ADD = "add";
     public static final String SUBTRACT = "subtract";
+    public static final String SQUARE = "square";
+    public static final String SQUARE_ROOT = "square_root";
 
     public Calculator() {
         firstNumber = "";
@@ -75,6 +77,19 @@ public class Calculator {
     }
 
     public String setOperand(String operand){
+        if(firstNumber.equals("")){
+            return INVALID;
+        }
+        if(operand.equals(SQUARE)){
+            secondNumber = firstNumber;
+            this.operand = MULTIPLY;
+            return calculate();
+        }
+        if (operand.equals(SQUARE_ROOT)) {
+            this.operand = SQUARE_ROOT;
+            return calculate();
+        }
+
         if(!operand.equals(ADD) && !operand.equals(SUBTRACT) && !operand.equals(DIVIDE) && !operand.equals(MULTIPLY)){
             return INVALID;
         }
@@ -83,7 +98,7 @@ public class Calculator {
     }
 
     public String calculate(){
-        Float result = null;
+        Double result = null;
 
         if(firstNumber.equals("") && secondNumber.equals("") && keptSecondNumber != null && keptOperand != null){
             firstNumber = keptResult;
@@ -92,20 +107,22 @@ public class Calculator {
         }
         switch (operand){
             case ADD:
-                result = Float.parseFloat(firstNumber) + Float.parseFloat(secondNumber);
+                result = Double.parseDouble(firstNumber) + Double.parseDouble(secondNumber);
                 break;
             case SUBTRACT:
-                result = Float.parseFloat(firstNumber) - Float.parseFloat(secondNumber);
+                result = Double.parseDouble(firstNumber) - Double.parseDouble(secondNumber);
                 break;
             case MULTIPLY:
-                result = Float.parseFloat(firstNumber) * Float.parseFloat(secondNumber);
+                result = Double.parseDouble(firstNumber) * Double.parseDouble(secondNumber);
                 break;
             case DIVIDE:
-                if(secondNumber.equals("0") || Float.valueOf(secondNumber) == 0.0){
+                if(secondNumber.equals("0") || Double.valueOf(secondNumber) == 0.0){
                     return INVALID;
                 }
-                result = Float.parseFloat(firstNumber) / Float.parseFloat(secondNumber);
+                result = Double.parseDouble(firstNumber) / Double.parseDouble(secondNumber);
                 break;
+            case SQUARE_ROOT:
+                result = Math.sqrt(Double.parseDouble(firstNumber));
                 default:
                     break;
         }
