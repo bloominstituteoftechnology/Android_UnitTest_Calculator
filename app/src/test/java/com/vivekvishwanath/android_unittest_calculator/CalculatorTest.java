@@ -10,7 +10,7 @@ public class CalculatorTest {
     @Test
     public void calculatorTest_AddSingleCharacter_WhenNothingElseAdded() {
         String singleCharacter = "1";
-        assertEquals(singleCharacter, calculator.addAymbol(singleCharacter));
+        assertEquals(singleCharacter, calculator.addSymbol(singleCharacter));
     }
 
     @Test
@@ -18,8 +18,26 @@ public class CalculatorTest {
         String previousCharacter = "1";
         String newCharacter = "2";
         String combinedCharacters = previousCharacter + newCharacter;
-        calculator.addAymbol(previousCharacter);
-        assertEquals(combinedCharacters, calculator.addAymbol(newCharacter));
+        calculator.addSymbol(previousCharacter);
+        assertEquals(combinedCharacters, calculator.addSymbol(newCharacter));
+    }
+
+    @Test
+    public void calculatorTest_AddDecimal_WithoutPreviousDecimalAdded() {
+        String previousCharacter = "1";
+        String newCharacter = ".";
+        String combinedCharacters = previousCharacter + newCharacter;
+        calculator.addSymbol(previousCharacter);
+        assertEquals(combinedCharacters, calculator.addSymbol(newCharacter));
+    }
+
+    @Test
+    public void calculatorTest_AddDecimal_WithPreviousDecimalAdded() {
+        String previousCharacter = "1.1";
+        String newCharacter = ".";
+        String combinedCharacters = "11.";
+        calculator.addSymbol(previousCharacter);
+        assertEquals(combinedCharacters, calculator.addSymbol(newCharacter));
     }
 
 }
