@@ -1,14 +1,15 @@
 package com.jakeesveld.calculator.Objects;
 
 public class Calculator {
+    public static final String INVALID = "Invalid";
     private String firstNumber;
     private String secondNumber;
     private String operand;
 
-    private static final String MULTIPLY = "multiply";
-    private static final String DIVIDE = "divide";
-    private static final String ADD = "add";
-    private static final String SUBTRACT = "subtract";
+    public static final String MULTIPLY = "multiply";
+    public static final String DIVIDE = "divide";
+    public static final String ADD = "add";
+    public static final String SUBTRACT = "subtract";
 
     public Calculator() {
         firstNumber = "";
@@ -18,6 +19,22 @@ public class Calculator {
 
     public String addSymbol(String symbol){
         StringBuilder builder = new StringBuilder();
+        try{
+            Integer.valueOf(symbol);
+        } catch (Exception e){
+            if(symbol.equals(".") && operand == null){
+                builder.append(firstNumber).append(symbol);
+                firstNumber = builder.toString();
+                return firstNumber;
+            }else if (symbol.equals(".")){
+                builder.append(secondNumber).append(symbol);
+                secondNumber = builder.toString();
+                return secondNumber;
+            }else{
+                return INVALID;
+            }
+        }
+
         if(operand == null) {
             builder.append(firstNumber).append(symbol);
             firstNumber = builder.toString();
@@ -43,5 +60,10 @@ public class Calculator {
             operand = null;
             return "";
         }
+    }
+
+    public String setOperand(String operand){
+        this.operand = operand;
+        return this.operand;
     }
 }
