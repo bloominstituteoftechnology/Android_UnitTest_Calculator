@@ -184,5 +184,88 @@ public class CalculatorTest {
 		assertThat(calculator.numTwo, equalTo("4"));
 	}
 	
+	@Test
+	public void addSymbolMultiplyFunction_AllValuesSet_ResultEqualsNumOneTimesNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "*";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("13008.0"));
+	}
+	
+	@Test
+	public void addSymbolDivideFunction_AllValuesSet_ResultEqualsNumOneDividedByNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "/";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("813.0"));
+	}
+	
+	@Test
+	public void addSymbolSubtractFunction_AllValuesSet_ResultEqualsNumOneMinusNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "-";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("3248.0"));
+	}
+	
+	@Test
+	public void addSymbolAddFunction_AllValuesSet_ResultEqualsNumOnePlusNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "+";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("3256.0"));
+	}
+	
+	@Test
+	public void addSymbolMultiplyFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOneTimesNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "*";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("52032.0"));
+	}
+	
+	@Test
+	public void addSymbolDivideFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOneDividedByNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "/";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("203.25"));
+	}
+	
+	@Test
+	public void addSymbolSubtractFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOneMinusNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "-";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("3244.0"));
+	}
+	
+	@Test
+	public void addSymbolAddFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOnePlusNumTwo() {
+		calculator.numOne = "3252";
+		calculator.opperand = "+";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		calculator.addSymbol("=");
+		assertThat(calculator.numTwo, equalTo("4"));
+		assertThat(calculator.result, equalTo("3260.0"));
+	}
 	
 }
