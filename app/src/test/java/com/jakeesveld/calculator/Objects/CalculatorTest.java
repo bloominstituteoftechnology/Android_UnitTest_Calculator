@@ -95,4 +95,30 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo(Calculator.INVALID));
     }
 
+    @Test
+    public void calculateAddWholeNumbers(){
+        String returnedString;
+        calculator.addSymbol("1");
+        calculator.setOperand(Calculator.ADD);
+        calculator.addSymbol("1");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("2"));
+    }
+
+    @Test
+    public void calculateAddDecimalNumbers(){
+        String returnedString;
+        calculator.addSymbol("1");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        calculator.setOperand(Calculator.ADD);
+        calculator.addSymbol("1");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("3"));
+    }
+
 }

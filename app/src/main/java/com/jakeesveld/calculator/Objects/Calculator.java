@@ -2,9 +2,7 @@ package com.jakeesveld.calculator.Objects;
 
 public class Calculator {
     public static final String INVALID = "Invalid";
-    private String firstNumber;
-    private String secondNumber;
-    private String operand;
+    private String firstNumber, secondNumber, operand, keptOperand, keptSecondNumber;
 
     public static final String MULTIPLY = "multiply";
     public static final String DIVIDE = "divide";
@@ -15,6 +13,8 @@ public class Calculator {
         firstNumber = "";
         secondNumber = "";
         operand = null;
+        keptOperand = null;
+        keptSecondNumber = null;
     }
 
     public String addSymbol(String symbol){
@@ -68,5 +68,41 @@ public class Calculator {
         }
         this.operand = operand;
         return this.operand;
+    }
+
+    public String calculate(){
+        Float result = null;
+        switch (operand){
+            case ADD:
+                result = Float.parseFloat(firstNumber) + Float.parseFloat(secondNumber);
+                break;
+            case SUBTRACT:
+                result = Float.parseFloat(firstNumber) - Float.parseFloat(secondNumber);
+                break;
+            case MULTIPLY:
+                result = Float.parseFloat(firstNumber) * Float.parseFloat(secondNumber);
+                break;
+            case DIVIDE:
+                result = Float.parseFloat(firstNumber) / Float.parseFloat(secondNumber);
+                break;
+                default:
+                    break;
+        }
+        if(result != null){
+            keptOperand = operand;
+            keptSecondNumber = secondNumber;
+            firstNumber = "";
+            secondNumber = "";
+            operand = null;
+
+            if(result % 1.0 == 0) {
+                int resultInt = (int) (result / 1);
+                return String.valueOf(resultInt);
+            }
+
+            return String.valueOf(result);
+        }
+
+        return INVALID;
     }
 }
