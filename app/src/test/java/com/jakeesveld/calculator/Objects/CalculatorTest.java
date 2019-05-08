@@ -223,4 +223,16 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo("3"));
     }
 
+    @Test
+    public void clear(){
+        String returnedString;
+        calculator.addSymbol("1");
+        calculator.setOperand(Calculator.ADD);
+        calculator.addSymbol("1");
+        calculator.calculate();
+        returnedString = calculator.clear();
+
+        assertThat(returnedString, equalTo(Calculator.CLEAR));
+    }
+
 }

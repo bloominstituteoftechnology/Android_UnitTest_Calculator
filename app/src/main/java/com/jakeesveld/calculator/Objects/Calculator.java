@@ -2,6 +2,7 @@ package com.jakeesveld.calculator.Objects;
 
 public class Calculator {
     public static final String INVALID = "Invalid";
+    public static final String CLEAR = "clear";
     private String firstNumber, secondNumber, operand, keptOperand, keptSecondNumber, keptResult;
 
     public static final String MULTIPLY = "multiply";
@@ -15,6 +16,17 @@ public class Calculator {
         operand = null;
         keptOperand = null;
         keptSecondNumber = null;
+    }
+
+    public String clear(){
+        firstNumber = "";
+        secondNumber = "";
+        operand = null;
+        keptResult = null;
+        keptOperand = null;
+        keptSecondNumber = null;
+
+        return CLEAR;
     }
 
     public String addSymbol(String symbol){
