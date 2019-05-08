@@ -83,6 +83,9 @@ public class Calculator {
                 result = Float.parseFloat(firstNumber) * Float.parseFloat(secondNumber);
                 break;
             case DIVIDE:
+                if(secondNumber.equals("0")){
+                    return INVALID;
+                }
                 result = Float.parseFloat(firstNumber) / Float.parseFloat(secondNumber);
                 break;
                 default:

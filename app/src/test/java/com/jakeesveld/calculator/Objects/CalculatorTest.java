@@ -121,4 +121,81 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo("3"));
     }
 
+    @Test
+    public void calculateSubtractWholeNumbers(){
+        String returnedString;
+        calculator.addSymbol("1");
+        calculator.setOperand(Calculator.SUBTRACT);
+        calculator.addSymbol("1");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("0"));
+    }
+    @Test
+    public void calculateSubtractDecimalNumbers(){
+        String returnedString;
+        calculator.addSymbol("1");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        calculator.setOperand(Calculator.SUBTRACT);
+        calculator.addSymbol("1");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("0"));
+    }
+
+    @Test
+    public void calculateMultiplyWholeNumbers(){
+        String returnedString;
+        calculator.addSymbol("2");
+        calculator.setOperand(Calculator.MULTIPLY);
+        calculator.addSymbol("5");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("10"));
+    }
+
+    @Test
+    public void calculateMultiplyDecimalNumbers(){
+        String returnedString;
+        calculator.addSymbol("2");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        calculator.setOperand(Calculator.MULTIPLY);
+        calculator.addSymbol("2");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("6.25"));
+    }
+
+    @Test
+    public void calculateDivideWholeNumbers(){
+        String returnedString;
+        calculator.addSymbol("5");
+        calculator.setOperand(Calculator.DIVIDE);
+        calculator.addSymbol("2");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("2.5"));
+    }
+
+    @Test
+    public void calculateDivideDecimalNumbers(){
+        String returnedString;
+        calculator.addSymbol("12");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        calculator.setOperand(Calculator.DIVIDE);
+        calculator.addSymbol("2");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("5"));
+    }
+
 }
