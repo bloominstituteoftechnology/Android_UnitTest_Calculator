@@ -86,4 +86,13 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo("2"));
     }
 
+    @Test
+    public void setIncorrectOperand(){
+        String returnedString;
+        calculator.addSymbol("1");
+        returnedString = calculator.setOperand("test");
+
+        assertThat(returnedString, equalTo(Calculator.INVALID));
+    }
+
 }

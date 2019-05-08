@@ -63,6 +63,9 @@ public class Calculator {
     }
 
     public String setOperand(String operand){
+        if(!operand.equals(ADD) && !operand.equals(SUBTRACT) && !operand.equals(DIVIDE) && !operand.equals(MULTIPLY)){
+            return INVALID;
+        }
         this.operand = operand;
         return this.operand;
     }
