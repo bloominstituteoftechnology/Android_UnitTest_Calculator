@@ -253,4 +253,14 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo("3"));
     }
 
+    @Test
+    public void calculateNegativeNumber(){
+        String returnedString;
+        calculator.addSymbol("-4");
+        calculator.setOperand(Calculator.SUBTRACT);
+        calculator.addSymbol("3");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("-7"));
+    }
 }
