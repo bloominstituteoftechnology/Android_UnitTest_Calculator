@@ -15,16 +15,26 @@ public class CalculatorTest {
     }
 
     @Test
-    public void addSymbolSingleCharacter() {
+    public void addSymbolSingleCharacterFirstNumber() {
         assertThat(calculator.addSymbol("d"), equalTo("d"));
     }
 
     @Test
-    public void addSymbolMultipleCharacters() {
+    public void addSymbolMultipleCharactersFirstNumber() {
         String returnedString;
         calculator.addSymbol("d");
         returnedString = calculator.addSymbol("d");
         assertThat(returnedString, equalTo("dd"));
+    }
+
+    @Test
+    public void removeSymbolFirstNumber(){
+        String returnedString;
+        calculator.addSymbol("d");
+        calculator.addSymbol("d");
+        returnedString = calculator.removeLastSymbol();
+
+        assertThat(returnedString, equalTo("d"));
     }
 
 }
