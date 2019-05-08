@@ -198,4 +198,29 @@ public class CalculatorTest {
         assertThat(returnedString, equalTo("5"));
     }
 
+    @Test
+    public void calculateDivideByZero(){
+        String returnedString;
+        calculator.addSymbol("12");
+        calculator.addSymbol(".");
+        calculator.addSymbol("5");
+        calculator.setOperand(Calculator.DIVIDE);
+        calculator.addSymbol("0");
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo(Calculator.INVALID));
+    }
+
+    @Test
+    public void calculateKeptCalculation(){
+        String returnedString;
+        calculator.addSymbol("1");
+        calculator.setOperand(Calculator.ADD);
+        calculator.addSymbol("1");
+        calculator.calculate();
+        returnedString = calculator.calculate();
+
+        assertThat(returnedString, equalTo("3"));
+    }
+
 }

@@ -2,7 +2,7 @@ package com.jakeesveld.calculator.Objects;
 
 public class Calculator {
     public static final String INVALID = "Invalid";
-    private String firstNumber, secondNumber, operand, keptOperand, keptSecondNumber;
+    private String firstNumber, secondNumber, operand, keptOperand, keptSecondNumber, keptResult;
 
     public static final String MULTIPLY = "multiply";
     public static final String DIVIDE = "divide";
@@ -72,6 +72,12 @@ public class Calculator {
 
     public String calculate(){
         Float result = null;
+
+        if(firstNumber.equals("") && secondNumber.equals("") && keptSecondNumber != null && keptOperand != null){
+            firstNumber = keptResult;
+            secondNumber = keptSecondNumber;
+            operand = keptOperand;
+        }
         switch (operand){
             case ADD:
                 result = Float.parseFloat(firstNumber) + Float.parseFloat(secondNumber);
@@ -83,7 +89,7 @@ public class Calculator {
                 result = Float.parseFloat(firstNumber) * Float.parseFloat(secondNumber);
                 break;
             case DIVIDE:
-                if(secondNumber.equals("0")){
+                if(secondNumber.equals("0") || Float.valueOf(secondNumber) == 0.0){
                     return INVALID;
                 }
                 result = Float.parseFloat(firstNumber) / Float.parseFloat(secondNumber);
@@ -100,9 +106,10 @@ public class Calculator {
 
             if(result % 1.0 == 0) {
                 int resultInt = (int) (result / 1);
+                keptResult = String.valueOf(resultInt);
                 return String.valueOf(resultInt);
             }
-
+            keptResult = String.valueOf(result);
             return String.valueOf(result);
         }
 
