@@ -29,14 +29,14 @@ public class CalculatorTest {
 	@Test
 	public void AddSymbol_inputOpperandWithNoNumOne_ReturnEmptyString(){
 		calculator.addSymbol("*");
-		assertThat(calculator.opperand, equalTo(""));
+		assertThat(calculator.operand, equalTo(""));
 	}
 	
 	@Test
 	public void AddSymbol_inputOpperandWithNumOneValid_ReturnOpperand(){
 		calculator.numOne = "5623";
 		calculator.addSymbol("*");
-		assertThat(calculator.opperand, equalTo("*"));
+		assertThat(calculator.operand, equalTo("*"));
 	}
 	
 	@Test
@@ -47,22 +47,22 @@ public class CalculatorTest {
 	
 	@Test
 	public void SetFlags_setOpperand_Returnfalse(){
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.setFlags();
 		assertThat(calculator.isFirstNum, equalTo(false));
 	}
 	
 	@Test
 	public void setOpperand_NumOneEmpty_ReturnEmptyString(){
-		calculator.setOpperand("*");
-		assertThat(calculator.opperand, equalTo(""));
+		calculator.setOperand("*");
+		assertThat(calculator.operand, equalTo(""));
 	}
 	
 	@Test
 	public void setOpperand_NumOneSet_ReturnOpperand(){
 		calculator.numOne = "12541";
-		calculator.setOpperand("*");
-		assertThat(calculator.opperand, equalTo("*"));
+		calculator.setOperand("*");
+		assertThat(calculator.operand, equalTo("*"));
 	}
 	
 	@Test
@@ -76,20 +76,20 @@ public class CalculatorTest {
 	@Test
 	public void deleteValue_NumOneSetOpperandSetNumTwoBlank_ReturnNumSameValueAndOpperandBlank(){
 		calculator.numOne = "3533";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.deleteValue();
 		assertThat(calculator.numOne, equalTo("3533"));
-		assertThat(calculator.opperand, equalTo(""));
+		assertThat(calculator.operand, equalTo(""));
 	}
 	
 	@Test
 	public void deleteValue_NumOneSetOpperandSetNumTwoSet_ReturnNumSameValueAndSameOpperandAndNumTwoMinusLastValue(){
 		calculator.numOne = "3533";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.numTwo = "3523";
 		calculator.deleteValue();
 		assertThat(calculator.numOne, equalTo("3533"));
-		assertThat(calculator.opperand, equalTo("*"));
+		assertThat(calculator.operand, equalTo("*"));
 		assertThat(calculator.numTwo, equalTo("352"));
 	}
 	
@@ -111,7 +111,7 @@ public class CalculatorTest {
 	@Test
 	public void addNum_NumOneSetOpperandSet_NumTwoEqualsInput(){
 		calculator.numOne = "3523";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.setFlags();
 		calculator.addNum("5");
 		assertThat(calculator.numTwo, equalTo("5"));
@@ -120,7 +120,7 @@ public class CalculatorTest {
 	@Test
 	public void addNum_NumOneSetOpperandSetHasDec_NumTwoEqualsInput(){
 		calculator.numOne = "3523";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.setFlags();
 		calculator.addNum(".");
 		calculator.addNum(".");
@@ -142,7 +142,7 @@ public class CalculatorTest {
 	public void addSymbol_InputStarNumOneEmpty_OpperandBlankNumOneBlank(){
 		calculator.addSymbol("*");
 		assertThat(calculator.numOne, equalTo(""));
-		assertThat(calculator.opperand, equalTo(""));
+		assertThat(calculator.operand, equalTo(""));
 	}
 	
 	
@@ -150,7 +150,7 @@ public class CalculatorTest {
 	public void addSymbol_InputMinusNumOneEmpty_OpperandBlankNumOneSet(){
 		calculator.numOne = "5";
 		calculator.addSymbol("-");
-		assertThat(calculator.opperand, equalTo("-"));
+		assertThat(calculator.operand, equalTo("-"));
 	}
 	
 	
@@ -158,7 +158,7 @@ public class CalculatorTest {
 	public void addSymbol_InputPlusNumOneEmpty_OpperandBlankNumOneSet(){
 		calculator.numOne = "5";
 		calculator.addSymbol("+");
-		assertThat(calculator.opperand, equalTo("+"));
+		assertThat(calculator.operand, equalTo("+"));
 	}
 	
 	
@@ -166,20 +166,20 @@ public class CalculatorTest {
 	public void addSymbol_InputDivideNumOneEmpty_OpperandBlankNumOneSet(){
 		calculator.numOne = "5";
 		calculator.addSymbol("/");
-		assertThat(calculator.opperand, equalTo("/"));
+		assertThat(calculator.operand, equalTo("/"));
 	}
 	
 	@Test
 	public void addSymbol_InputStarNumOneSet_OpperandSet(){
 		calculator.numOne = "3252";
 		calculator.addSymbol("*");
-		assertThat(calculator.opperand, equalTo("*"));
+		assertThat(calculator.operand, equalTo("*"));
 	}
 	
 	@Test
 	public void addSymbol_InputNumNumOneSetOpperandSet_NumTwoEqualsInput(){
 		calculator.numOne = "3252";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.addSymbol("4");
 		assertThat(calculator.numTwo, equalTo("4"));
 	}
@@ -187,7 +187,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolMultiplyFunction_AllValuesSet_ResultEqualsNumOneTimesNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		assertThat(calculator.numTwo, equalTo("4"));
@@ -197,7 +197,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolDivideFunction_AllValuesSet_ResultEqualsNumOneDividedByNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "/";
+		calculator.operand = "/";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		assertThat(calculator.numTwo, equalTo("4"));
@@ -207,7 +207,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolSubtractFunction_AllValuesSet_ResultEqualsNumOneMinusNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "-";
+		calculator.operand = "-";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		assertThat(calculator.numTwo, equalTo("4"));
@@ -217,7 +217,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolAddFunction_AllValuesSet_ResultEqualsNumOnePlusNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "+";
+		calculator.operand = "+";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		assertThat(calculator.numTwo, equalTo("4"));
@@ -227,7 +227,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolMultiplyFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOneTimesNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "*";
+		calculator.operand = "*";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		calculator.addSymbol("=");
@@ -238,7 +238,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolDivideFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOneDividedByNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "/";
+		calculator.operand = "/";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		calculator.addSymbol("=");
@@ -249,7 +249,7 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolSubtractFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOneMinusNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "-";
+		calculator.operand = "-";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		calculator.addSymbol("=");
@@ -260,12 +260,47 @@ public class CalculatorTest {
 	@Test
 	public void addSymbolAddFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOnePlusNumTwo() {
 		calculator.numOne = "3252";
-		calculator.opperand = "+";
+		calculator.operand = "+";
 		calculator.addSymbol("4");
 		calculator.addSymbol("=");
 		calculator.addSymbol("=");
 		assertThat(calculator.numTwo, equalTo("4"));
 		assertThat(calculator.result, equalTo("3260.0"));
+	}
+	
+	@Test
+	public void addSymbolSqrtFunction_AllValuesSetHasPressedEquals_ResultEqualsSqrtOfNum() {
+		calculator.numOne = "3252";
+		calculator.operand = "^^";
+		calculator.addSymbol("=");
+		calculator.addSymbol("=");
+		assertThat(calculator.result, equalTo("7.5515"));
+	}
+	
+	@Test
+	public void addSymboleSqrtFunction_AllValuesSet_ResultEqualsSqrtOfNum() {
+		calculator.numOne = "3252";
+		calculator.operand = "^^";
+		calculator.addSymbol("=");
+		assertThat(calculator.result, equalTo("57.0263"));
+	}
+	
+	@Test
+	public void addSymbgolPowerOfFunction_AllValuesSetHasPressedEquals_ResultEqualsNumOnePowerOfNumTwo() {
+		calculator.numOne = "2";
+		calculator.operand = "^";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		assertThat(calculator.result, equalTo("256.0"));
+	}
+	
+	@Test
+	public void addSymbgolPowerOfFunction_AllValuesSet_ResultEqualsNumOnePowerOfNumTwo() {
+		calculator.numOne = "2";
+		calculator.operand = "^";
+		calculator.addSymbol("4");
+		calculator.addSymbol("=");
+		assertThat(calculator.result, equalTo("256.0"));
 	}
 	
 }

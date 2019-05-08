@@ -5,7 +5,7 @@ public class Calculator {
 	public boolean hasPressedEquals;
 	public String numOne;
 	public String numTwo;
-	public String opperand;
+	public String operand;
 	public String result;
 	
 	public Calculator() {
@@ -13,7 +13,7 @@ public class Calculator {
 		hasPressedEquals = false;
 		numOne = "";
 		numTwo = "";
-		opperand = "";
+		operand = "";
 	}
 	
 	public void addSymbol(String input) {
@@ -25,19 +25,27 @@ public class Calculator {
 				break;
 			case "-":
 				hasPressedEquals = false;
-				setOpperand(input);
+				setOperand(input);
+				break;
+			case "^":
+				hasPressedEquals = false;
+				setOperand(input);
+				break;
+			case "^^":
+				hasPressedEquals = false;
+				setOperand(input);
 				break;
 			case "+":
 				hasPressedEquals = false;
-				setOpperand(input);
+				setOperand(input);
 				break;
 			case "/":
 				hasPressedEquals = false;
-				setOpperand(input);
+				setOperand(input);
 				break;
 			case "*":
 				hasPressedEquals = false;
-				setOpperand(input);
+				setOperand(input);
 				break;
 			case "del":
 				hasPressedEquals = false;
@@ -57,7 +65,7 @@ public class Calculator {
 		}
 		
 		if (!isFirstNum && numTwo.equals("")) {
-			opperand = "";
+			operand = "";
 			return;
 		}
 		
@@ -67,14 +75,14 @@ public class Calculator {
 		}
 	}
 	
-	public void setOpperand(String input) {
+	public void setOperand(String input) {
 		if (!numOne.equals("") && numTwo.equals("")) {
-			opperand = input;
+			operand = input;
 		}
 	}
 	
 	public void setFlags() {
-		if (opperand.equals("")) {
+		if (operand.equals("")) {
 			isFirstNum = true;
 		} else {
 			isFirstNum = false;
@@ -112,58 +120,94 @@ public class Calculator {
 	
 	public void performOperation() {
 		String passedNumOne;
-		if(hasPressedEquals){
+		if (hasPressedEquals) {
 			passedNumOne = result;
-		} else { passedNumOne = numOne;}
+		} else {
+			passedNumOne = numOne;
+		}
 		if (!numOne.equals("") &&
-				!opperand.equals("") &&
-				!numTwo.equals("")) {
-			switch (opperand) {
+				!operand.equals("")) {
+			
+			if (numTwo.equals("") && operand.equals("^^")) {
+				setResult(sqrt(passedNumOne));
+			}
+		 else if (!numTwo.equals("")) {
+			switch (operand) {
 				case "-":
-					result = subtract(passedNumOne,numTwo);
+					setResult(subtract(passedNumOne, numTwo));
 					break;
 				case "+":
-					result = add(passedNumOne,numTwo);
+					setResult(add(passedNumOne, numTwo));
 					break;
 				case "/":
-					result = divide(passedNumOne,numTwo);
+					setResult(divide(passedNumOne, numTwo));
 					break;
 				case "*":
-					result = multiply(passedNumOne,numTwo);
+					setResult(multiply(passedNumOne, numTwo));
 					break;
-			}
-			
+				case "^":
+					powerOf(strToDoub(passedNumOne), strToDoub(numTwo), 0);
+					break;
+			}}
 		}
 	}
 	
-	public String multiply(String numOne, String numTwo){
+	
+	public String multiply(String numOne, String numTwo) {
 		return String.valueOf(strToDoub(numOne) * strToDoub(numTwo));
 	}
 	
-	public String add(String numOne, String numTwo){
+	public String add(String numOne, String numTwo) {
 		return String.valueOf(strToDoub(numOne) + strToDoub(numTwo));
 	}
 	
-	public String subtract(String numOne, String numTwo){
+	public String subtract(String numOne, String numTwo) {
 		return String.valueOf(strToDoub(numOne) - strToDoub(numTwo));
 	}
-	public String divide(String numOne, String numTwo){
+	
+	public String divide(String numOne, String numTwo) {
 		return String.valueOf(strToDoub(numOne) / strToDoub(numTwo));
 	}
 	
-	public double strToDoub(String input){
+	public String sqrt(String num) {
+		return String.valueOf(Math.sqrt(strToDoub(num)));
+	}
+	
+	public void powerOf(double numOne, double numTwo, double runningTotal) {
+		if (runningTotal == 0 && numTwo > 0) {
+			runningTotal = numOne * numOne;
+			numTwo--;
+		}
+		
+		if (numTwo > 0) {
+			runningTotal *= numOne;
+			powerOf(numOne, numTwo - 1, runningTotal * numOne);
+		} else {
+			setResult(String.valueOf(runningTotal));
+		}
+	}
+	
+	public double strToDoub(String input) {
 		return Double.parseDouble(input);
 	}
 	
-	public void setResult(String result){
-		this.result = result;
+	public void setResult(String result) {
+		if (hasDec(result)) {
+			String firstPart = result.substring(0, result.lastIndexOf("."));
+			String lastPart = result.substring(result.lastIndexOf("."));
+			if (lastPart.length() > 5) {
+				this.result = firstPart + lastPart.substring(0, 5);
+			} else {
+				this.result = firstPart + lastPart;
+			}
+		} else this.result = result;
 	}
 	
-	public String getResult(){
+	public String getResult() {
 		return result;
 	}
 	
 	public String getDisplayText() {
-		return numOne + "   " + opperand + "   " + numTwo;
+		return numOne + "   " + operand + "   " + numTwo;
 	}
 }
