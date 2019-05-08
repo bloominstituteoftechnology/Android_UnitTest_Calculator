@@ -40,4 +40,11 @@ public class CalculatorTest {
         assertEquals(combinedCharacters, calculator.addSymbol(newCharacter));
     }
 
+    @Test
+    public void calculatorTest_AddTwoNumbers_WithoutPreviousOperations() {
+        String entry = "1+2";
+        String sum = "3";
+        calculator.addSymbol(entry);
+        assertEquals(sum, calculator.add());
+    }
 }
