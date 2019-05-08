@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
     @Test
     public void addSymbol_OneCharacter_ReturnsTrue() {
-        assertEquals("1", "1");
+        assertEquals("1", Calculator.addSymbol("1"));
     }
 
     @Test
     public void addSymbol_MultipleCharacters_ReturnsFalse() {
-        assertEquals("1", "123");
+        assertEquals("1", Calculator.addSymbol("123"));
     }
 }
