@@ -31,7 +31,7 @@ public class Calculator {
 				hasPressedEquals = false;
 				setOperand(input);
 				break;
-			case "^^":
+			case "√":
 				hasPressedEquals = false;
 				setOperand(input);
 				break;
@@ -128,7 +128,7 @@ public class Calculator {
 		if (!numOne.equals("") &&
 				!operand.equals("")) {
 			
-			if (numTwo.equals("") && operand.equals("^^")) {
+			if (numTwo.equals("") && operand.equals("√")) {
 				setResult(sqrt(passedNumOne));
 			}
 		 else if (!numTwo.equals("")) {
