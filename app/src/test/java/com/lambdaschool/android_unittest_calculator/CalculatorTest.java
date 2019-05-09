@@ -50,7 +50,7 @@ public class CalculatorTest {
     @Test
     public void backspace_One() {
         calculator.setExpression("1");
-        assertEquals(calculator.getExpression(), calculator.backspace());
+        assertEquals("", calculator.backspace());
     }
 
     @Test
@@ -192,32 +192,56 @@ public class CalculatorTest {
     }
 
     @Test
-    public void calculate_Addition() {
+    public void calculate_Addition_Integer() {
+        //calculator.setExpression("123+123");
         calculator.setExpression("123+123");
         assertEquals("246", calculator.calculate());
     }
+    @Test
+    public void calculate_Addition_Decimal() {
+        //calculator.setExpression("123+123");
+        calculator.setExpression("123.5+123.5");
+        assertEquals("247", calculator.calculate());
+    }
 
     @Test
-    public void calculate_Subtraction() {
+    public void calculate_Subtraction_Integer() {
         calculator.setExpression("123-123");
         assertEquals("0", calculator.calculate());
     }
 
     @Test
-    public void calculate_Multiplication() {
+    public void calculate_Subtraction_Decimal() {
+        calculator.setExpression("123.5-123.5");
+        assertEquals("0", calculator.calculate());
+    }
+
+    @Test
+    public void calculate_Multiplication_Integer() {
         calculator.setExpression("123x123");
         assertEquals("15129", calculator.calculate());
     }
 
     @Test
-    public void calculate_Division() {
+    public void calculate_Multiplication_Decimal() {
+        calculator.setExpression("123.5x123.5");
+        assertEquals("15252.25", calculator.calculate());
+    }
+
+    @Test
+    public void calculate_Division_Integer() {
         calculator.setExpression("123÷123");
         assertEquals("1", calculator.calculate());
     }
 
     @Test
+    public void calculate_Division_Decimal() {
+        calculator.setExpression("123.5÷123.5");
+        assertEquals("1", calculator.calculate());
+    }
+
+    @Test
     public void reset() {
-        calculator.reset();
-        assertThat(calculator.getExpression(), equalTo(""));
+        assertThat(calculator.reset(), equalTo(""));
     }
 }
