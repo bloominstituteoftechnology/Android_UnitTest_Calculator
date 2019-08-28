@@ -1,5 +1,7 @@
 # Android Test Driven Design Calculator
 
+## Deprecated. This material has been relocated to [https://github.com/LambdaSchool/Sprint-Android-Code-Quality-Assignments/tree/master/M03/Assignment]. This repository may be deleted in the future.
+
 For this app, you'll bulid a simple, basic calculator. The difference, is that you'll be using Test Driven design to do it.
 > You will also not be building a UI for this as we will be using TDD to do that for the next assignment.
 
